@@ -1,3 +1,40 @@
+DB creation :
+
+-- 1. Create the database
+CREATE DATABASE IF NOT EXISTS ecommjava CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- 2. Create a new user (replace 'ecomm_user' and 'password123' with your desired username and strong password)
+CREATE USER 'ecomm_user'@'localhost' IDENTIFIED BY 'password123';
+
+-- 3. Grant all privileges on the new database to the user
+GRANT ALL PRIVILEGES ON ecommjava.* TO 'ecomm_user'@'localhost';
+
+-- 4. Apply changes
+FLUSH PRIVILEGES;
+
+_____________________
+
+Update application.properties : 
+
+spring.datasource.url=jdbc:mysql://localhost:3306/ecommjava?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC
+spring.datasource.username=ecomm_user
+spring.datasource.password=password123
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+
+
+______________________
+
+
+'ecomm_user'@'localhost'
+
+ecomm_user — the username you’re creating or referring to.
+
+localhost — the host from which this user is allowed to connect to the MySQL server.
+
+
+_______________________
+
+
 <a href="https://trendshift.io/repositories/151" target="_blank"><img src="https://trendshift.io/api/badge/repositories/151" alt="jaygajera17%2FE-commerce-project-springBoot | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/></a>
 
 ## New Version ( what's new)
